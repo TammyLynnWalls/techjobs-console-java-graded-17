@@ -65,6 +65,7 @@ public class TechJobs {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+
                 }
             }
         }
@@ -120,6 +121,10 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //iterate over the ArrayList
+        if (someJobs.isEmpty()){
+            System.out.println("There are no matching jobs.");
+        }
+
         for(HashMap<String, String> job : someJobs) {
             //create a nested loop over each HashMap
             System.out.println("*****");
