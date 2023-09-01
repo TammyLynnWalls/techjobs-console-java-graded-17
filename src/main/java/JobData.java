@@ -94,13 +94,23 @@ public class JobData {
        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
 
-        for (HashMap<String, String> row : allJobs) {
+//        for (HashMap<String, String> row : allJobs) {
+//
+//
+//            if (row.containsValue(value)&& !jobs.contains(row)) {
+//                jobs.add(row);
+//            }
+//        }
+        for (HashMap<String, String> row : allJobs){
+            for(Map.Entry<String,String> entry : row.entrySet()){
+                if (entry.getValue().toLowerCase().contains(value.toLowerCase())){
+                    jobs.add(row);
+                }
 
-
-            if (row.containsValue(value)&& !jobs.contains(row)) {
-                jobs.add(row);
             }
         }
+
+
 
         return jobs;
     }
